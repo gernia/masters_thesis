@@ -1,2 +1,21 @@
-# masters_thesis
-This is my master's thesis.
+# Development of a robust deep learning approach for the detection of atrial fibrillation in mobile ECG recordings
+This is my [master's thesis] (https://github.com/gernia/masters_thesis/blob/main/Masterarbeit.pdf).
+
+## Abstract
+Atrial fibrillation is one of the most common cardiac arrhythmias and leads to a higher risk of
+stroke, which can cause permanent damage and premature death. The early detection of atrial
+fibrillation is desirable, as untreated atrial fibrillation can become chronic. The gold standard
+for atrial fibrillation diagnosis is the 12-lead ECG, which is interpreted by medical personnel.
+Because paroxysmal atrial fibrillation only occurs sporadically, a longterm ECG, which can be
+recorded via mobile ECG patches, is required.
+The manual interpretation of longterm ECGs is resource intensiv, which is why an automated
+interpretation using deep learning algorithms is necessary. Mobile ECG patches have a reduced
+lead count and the morphology of their signals is different compared to those of 12-lead
+ECGs. Due to these differences, available classifiers have a limited usefulness on records of
+mobile ECG patches. To solve this problem, in this work a deep learning algorithm is developed,
+which is trained on 12-lead ECGs and is robust against a change in signal morphology.
+The developed weighted ensemble of 5 domain adversarial neural networks achieves an
+F1-score of up to 0,962, a recall of up to 0,955 and a specificity of up to 0,973 when used on
+as test dataset of 12-lead ECGs. On ECGs taken from the TIMELY project, which are recorded
+via mobile ECG patches, it achieves an F1-score of up to 0,986, a recall of up to 1,00 and a
+specificity of up to 0,979.
