@@ -1,5 +1,5 @@
 # Development of a robust deep learning approach for the detection of atrial fibrillation in mobile ECG recordings
-This is my [master's thesis] (https://github.com/gernia/masters_thesis/blob/main/Masterarbeit.pdf).
+This is my [master's thesis](https://github.com/gernia/masters_thesis/blob/main/Masterarbeit.pdf).
 
 ## Abstract
 Atrial fibrillation is one of the most common cardiac arrhythmias and leads to a higher risk of
