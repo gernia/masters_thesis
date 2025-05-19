@@ -1,0 +1,17 @@
+\chapter{Zusammenfassung und Ausblick}\label{chap:fazit}
+
+%\section{Zusammenfassung}
+
+In dieser Arbeit wurde ein robuster Ansatz zur Detektion von \gls{VHF} entwickelt, welcher mit \gls{EKG}s der Extremitätenableitungen aus Standard-12-Kanal-\gls{EKG}s trainiert wurde und anwendbar auf morphologisch veränderte Signale mobiler \gls{EKG}-Patches ist. 
+
+Dazu wurden zuerst physiologische Grundlagen zu \gls{VHF}, sowie Grundlagen des \gls{DL} erarbeitet. Es wurden Ansätze zu \gls{DG} identifiziert, welche genutzt werden können, um \gls{DL}-basierte Ansätze auf unbekannte und morphologisch veränderte Signale zu übertragen. Einer dieser Ansätze ist Domain Adversarial Learning, welcher genutzt wurde, um ein \gls{DANN} auf Basis von InceptionTime zu entwickeln. Das entwickelte Modell wurde zusammen mit einem Vergleichsmodell ohne Domain Adversarial Learning auf Daten aus der Quelldomäne 12-Kanal-\gls{EKG}, sowie Daten aus der Zieldomäne mobiler \gls{EKG}-Patches angewendet. Dabei konnte gezeigt werden, dass durch Domain Adversarial Learning eine Steigerung der Klassifikationsgüte gegenüber des Vergleichsmodells sowohl auf Daten der Quelldomäne als auch auf Daten verschiedener Zieldomänen erreicht werden kann. 
+
+%\section{Ausblick}
+
+Eine Möglichkeit, die in der Diskussion angesprochene fehlende Erklärbarkeit zu verbessern, ist die Verbindung mit Methoden der explainable AI. Explainable AI zielt darauf ab, sogenannte Black-Box Algorithmen zu vermeiden, indem i.d.R nachträglich geschätzt wird, wie ein \gls{ANN} seine Entscheidungen trifft. 
+
+Die Architektur des \gls{DANN}s kann weiter angepasst werden, um eine noch höhere  Klassifikationsgüte zu erzielen. Bspw. können für eine bessere Regularisierung im Label Predictor und Domain Classifier Dropout Layer eingefügt werden. Diese Schichten reduzieren Overfitting, indem zufällige Eingaben für eine bestimmte Anzahl von Neuronen auf 0 gesetzt werden. 
+
+Die Klassifikationsgüte des Ensembles auf langen, zusammenhängenden Aufnahmen wie die der \gls{SHDB-AF}-Datenbank oder Teilen des TIMELY-Datensatzes kann unter Umständen verbessert werden, indem ein zusätzlicher Zeitfilter eingebaut wird, der nur dann ein Fenster mit \gls{VHF} klassifiziert, wenn das vorhergehende und das nachfolgende Fenster ebenso mit \gls{VHF} klassifiziert werden. Solch ein Filter würde die Robustheit gegenüber verrauschten Fenstern oder anderweitig unsicheren Detektionen erhöhen.
+
+Abschließend lässt sich sagen, dass Domain Adversarial Learning ein sinnvoller Ansatz ist, um ein \gls{ANN} zu entwickeln, welches robust gegenüber signalmorphologischer Veränderungen ist. Das in dieser Arbeit entwickelte \gls{DANN} kann sowohl erfolgreich auf \gls{EKG}s der Extremitätenableitungen von Standard-12-Kanal-\gls{EKG}s, als auch auf unbekannte Daten mobiler \gls{EKG}-Patches angewendet werden. Somit kann es einen wertvollen Beitrag leisten, den Arbeitsaufwand von medizinischem Fachpersonal bei der Analyse von Langzeit-\gls{EKG}-Aufnahmen zu reduzieren und dazu beitragen, dass \gls{VHF} frühzeitig erkannt und damit Folgeerkrankungen vorgebeugt wird.

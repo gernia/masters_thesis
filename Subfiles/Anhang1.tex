@@ -1,0 +1,94 @@
+\chapter{Anhang}
+
+\section{Suchstrings der systematischen Literaturrecherche}\label{sec:strings}
+
+\subsection*{String 1}
+\begin{verbatim}
+("ECG" OR "electrocardiogra*" ) AND
+("Out-of-Distribution Generalization" OR
+"Out-of-Distribution Generalisation" OR "Domain Generalization" OR 
+"Domain Generalisation" OR "OOD Generalization" OR "OOD Generalisation")
+\end{verbatim} 
+
+\subsection*{String 2}
+\begin{verbatim}
+("ECG" OR "electrocardiogra*" ) AND 
+("Out-of-Distribution Generalization" OR 
+"Out-of-Distribution Generalisation" OR "Domain Generalization" OR 
+"Domain Generalisation" OR "OOD Generalization" OR 
+"OOD Generalisation" OR "Out-of-Distribution General*" OR 
+"OOD General*" OR "General* Across Domains" OR
+"Cross-Domain General*" OR "Robustness to Domain Shift" OR 
+"Multi-Domain Learning" OR "Domain-Invariant Learning" OR 
+"Out-of-Distribution Attributes" OR "General* Target Domain" OR 
+"Meta-Learning" OR "Domain Invarian*") AND 
+("Neural Network" OR "Deep Learning") AND 
+(classif* OR detect*)
+\end{verbatim} 
+
+\newpage
+\subsection*{String 3}
+\begin{verbatim}
+("ECG" OR "EEG" OR "electrocardiogra*" OR 
+"electroencephalogr*" OR "Biosignal" ) AND 
+("Out-of-Distribution Generalization" OR 
+"Out-of-Distribution Generalisation" OR "Domain Generalization" OR 
+"Domain Generalisation" OR "OOD Generalization" OR 
+"OOD Generalisation" OR "Out-of-Distribution General*" OR 
+"OOD General*" OR "General* Across Domains" OR 
+"Cross-Domain General*" OR "Robustness to Domain Shift" OR 
+"Multi-Domain Learning" OR "Domain-Invariant Learning" OR 
+"Out-of-Distribution Attributes" OR "General* Target Domain" OR 
+"Meta-Learning" OR "Domain Invarian*") AND 
+("Neural Network" OR "Deep Learning")
+\end{verbatim} 
+
+\subsection*{String 4}
+\begin{verbatim}
+"Medical Imaging" AND 
+("Domain General*" OR "Out-of-Distribution General*" OR "OOD General*") AND
+("Neural Network" OR "Deep Learning" OR "DL")
+\end{verbatim} 
+
+\newpage
+\section{Grid Search Ergebnisse für InceptionTime}
+
+\begin{table}[h!]
+\centering
+\caption[Ergebnisse der InceptionTime Grid Search]{Ergebnisse der Grid Search für InceptionTime. Optimierte Hyperparameter sind \texttt{depth d} (Anzahl der Inception Module), \texttt{learning rate l} und \texttt{batch size b}. Die Metriken wurden berechnet, indem vom Durchschnitt aus allen 5 Folds der Cross Validation die Standardabweichung abgezogen wurde. Die Standardabweichung $\sigma$ für die jeweilige Metrik rechts neben der betreffenden Metrik angegeben. Negative Werte kommen zustande, wenn die Standardabweichung größer als der Durchschnitt ist. Die beste Hyperparameterkombination ist hervorgehoben.}
+\label{tab:GridSearch_InceptionTime}
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Hyperparameterkombination} & \textbf{F1} & \textbf{$\sigma$} & \textbf{Sensitivität} & \textbf{$\sigma$} & \textbf{Spezifität} & \textbf{$\sigma$}\\
+\midrule 
+d=3 l=0,0001 b=128  & 0,919  & 0,004  & 0,928  & 0,007 & 0,903 & 0,008 \\
+d=3 l=0,0001 b=64  & 0,916  & 0,005  & 0,925  & 0,008 & 0,901 & 0,007 \\
+d=3 l=0,0001 b=32  & 0,919  & 0,003  & 0,925  & 0,006 & 0,910 & 0,004 \\
+d=3 l=0,001	b=128  & 0,923  & 0,003  & 0,930  & 0,007 & 0,909 & 0,007 \\
+d=3 l=0,001	b=64  & 0,921  & 0,004  & 0,930  & 0,007 & 0,900 & 0,011 \\
+d=3 l=0,001	b=32  & 0,921  & 0,004  & 0,927  & 0,006 & 0,913 & 0,003 \\
+d=3 l=0,01 b=128  & 0,920  & 0,004  & 0,928  & 0,008 & 0,905 & 0,008 \\
+d=3 l=0,01 b=64  & 0,917  & 0,005  & 0,917  & 0,010 & 0,911 & 0,008 \\
+d=3 l=0,01 b=32  & 0,918  & 0,005  & 0,919  & 0,015 & 0,897 & 0,015 \\
+d=6 l=0,0001 b=128  & 0,930  & 0,004  & 0,935  & 0,009 & 0,913 & 0,012 \\
+d=6 l=0,0001 b=64  & 0,933  & 0,002  & 0,935  & 0,006 & 0,923 & 0,008 \\
+d=6 l=0,0001 b=32  & 0,932  & 0,004  & 0,937  & 0,003 & 0,926 & 0,006 \\
+d=6 l=0,001 b=128  & 0,933  & 0,004  & 0,939  & 0,003 & 0,924 & 0,008 \\
+d=6 l=0,001 b=64  & 0,935  & 0,003  & 0,935  & 0,007 & 0,932 & 0,004 \\
+d=6 l=0,001 b=32  & 0,935  & 0,003  & 0,932  & 0,005 & 0,931 & 0,009 \\
+d=6 l=0,01 b=128  & 0,934  & 0,004  & 0,935  & 0,005 & 0,932 & 0,003 \\
+d=6 l=0,01 b=64  & 0,934  & 0,002  & 0,931  & 0,005 & 0,930 & 0,009 \\
+d=6 l=0,01 b=32  & 0,934  & 0,003  & 0,935  & 0,007 & 0,925 & 0,008 \\
+d=9 l=0,0001 b=128  & 0,938  & 0,002  & 0,933  & 0,006 & 0,933 & 0,008 \\
+\textbf{d=9 l=0,0001 b=64}  & \textbf{0,939}  & \textbf{0,002}  & \textbf{0,935}  & \textbf{0,006} & \textbf{0,939} & \textbf{0,003}  \\
+d=9 l=0,0001 b=32  & 0,934  & 0,004  & 0,926  & 0,013 & 0,935 & 0,006 \\
+d=9 l=0,001 b=128  & 0,938  & 0,004  & 0,938  & 0,003 & 0,934 & 0,009 \\
+d=9 l=0,001 b=64  & 0,939  & 0,004  & 0,938 & 0,005 & 0,937 & 0,007 \\
+d=9 l=0,001 b=32  & 0,936  & 0,006  & 0,937  & 0,005 & 0,933 & 0,009 \\
+d=9 l=0,01 b=128  & 0,936  & 0,004  & 0,932  & 0,005 & 0,938 & 0,006 \\
+d=9 l=0,01 b=64  & 0,938  & 0,004  & 0,937  & 0,002 & 0,939 & 0,008 \\
+d=9 l=0,01 b=32  & 0,934  & 0,006  & 0,924  & 0,012 & 0,939 & 0,007 \\
+
+\bottomrule
+\end{tabular}
+\end{table}

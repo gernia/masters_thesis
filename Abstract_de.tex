@@ -1,0 +1,10 @@
+\chapter*{Abstrakt}
+
+Vorhofflimmern ist eine der häufigsten Herzrhythmusstörungen und bringt ein erhöhtes Schlaganfallrisiko mit sich, was zu bleibenden Schäden bis hin zum vorzeitigen Tod führen kann. Die frühzeitige Detektion von Vorhofflimmern ist wünschenswert, da es andernfalls zur Chronifizierung kommen kann.
+Der Goldstandard zur Diagnose von Vorhofflimmern ist das 12-Kanal-EKG, welches durch medizinisches Fachpersonal interpretiert wird. Um das lediglich phasenweise auftretende paroxysmale Vorhofflimmern zu diagnostizieren, ist ein Langzeit-EKG nötig, welches mittels mobilen EKG-Patches aufgezeichnet werden kann. 
+
+Die manuelle Auswertung dieser EKGs ist jedoch ressourcenintensiv, weshalb eine automatisierte Auswertung mittels Deep Learning-Algorithmen nötig ist. Mobile EKG-Patches haben außerdem eine reduzierte Kanalanzahl und die Signalmorphologie unterscheidet sich von der der 12-Kanal-EKGs. Aufgrund dieser Abweichungen sind bereits vorhandene Klassifikationsansätze auf Aufnahmen mobiler EKG-Patches nur begrenzt übertragbar. 
+Um dieses Problem zu lösen, wird in dieser Arbeit ein Deep Learning-basierter Ansatz zur Detektion von Vorhofflimmern auf Basis von 12-Kanal-EKGs entwickelt, welcher robust gegen signalmorphologische Veränderungen ist. 
+
+Das entwickelte gewichtete Ensemble aus 5 Domain Adversarial Neural Networks erreicht einen F1-Score von bis zu 0,962 auf einem Testdatensatz aus 12-Kanal-EKGs, sowie einen Recall von bis zu 0,955 und eine Specificity von bis zu 0,973.
+Auf Aufnahmen aus dem TIMELY-Projekt, welche mittels mobiler EKG-Patches aufgezeichnet wurden, erreicht das Ensemble einen F1-Score von bis zu 0,986, sowie einen Recall von bis zu 1,00 und eine Specificity von bis zu 0,979.

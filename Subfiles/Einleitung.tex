@@ -1,0 +1,65 @@
+\chapter{Einleitung}\label{chap:Einleitung}
+
+%- Relevanz VHF
+%- Problem Detektion von VHF
+%- Lösungsansätze
+%- Forschungslücke
+%- Ansatz dieser Arbeit
+
+
+\gls{VHF} ist nach ventrikulären und supraventrikulären Extrasystolen die häufigste Herzrhythmusstörung \cite{gertsch_ekg_2007}. Die Global Burden of Disease 2010 Study \cite{chugh_worldwide_2014} gibt an, dass die geschätzte Zahl von an \gls{VHF} leidenden Menschen weltweit im Jahr 2010 bei 33,5 Millionen lag, von denen die Zahl der Männer 20,9 Millionen und die Zahl der Frauen 12,6 Millionen beträgt. Weiterhin prognostiziert die Studie in den USA mehr als eine Verdopplung der \gls{VHF}-Fälle bis zum Jahr 2050. \gls{VHF} erhöht unbehandelt aufgrund von Thrombenbildung das Schlaganfallrisiko signifikant, was zu bleibenden Beeinträchtigungen bis hin zum vorzeitigen Tod führen kann \cite{gertsch_ekg_2007}. Die altersstandardisierte Mortalitätsrate weltweit hat im Zeitraum von 1990 bis 2021 von 1,46 auf 1,50 pro 100~000 Menschen stetig zugenommen \cite{liang_global_2025}.
+
+%Arten von VHF -> Problem Diagnostik
+Die Detektion von \gls{VHF} stellt eine Herausforderung dar, denn gerade zu Beginn tritt \gls{VHF} lediglich phasenweise auf und endet von allein (paroxysmales \gls{VHF}). Eine frühzeitige Diagnose von \gls{VHF} ist wünschenswert, da sich aus unbehandeltem paroxysmalem \gls{VHF} ein persistentes und aus diesem ein permanentes, also ein ununterbrochen andauerndes und nicht mehr konventionell behandelbares, \gls{VHF} entwickeln kann. Der Goldstandard zur \gls{VHF}-Diagnose ist das 12-Kanal-\gls{EKG}, welches durch medizinisches Fachpersonal interpretiert wird. Aufgrund des episodischen Auftretens von paroxysmalem \gls{VHF} gekoppelt mit der Tatsache, dass 50\% der Patienten\footnote{In dieser Arbeit wird aufgrund der besseren Lesbarkeit bewusst auf eine geschlechtsneutrale
+Formulierung verzichtet. Sämtliche männliche Schreibweisen beziehen sich dabei gleichermaßen
+auf alle Geschlechter.} keinerlei Symptome verspüren \cite{gertsch_ekg_2007}, bleibt paroxysmales \gls{VHF} mit konventionellen Elektrokardiographen häufig undiagnostiziert. 
+\cite{rizwan_review_2021} 
+
+%Lösungsansätze
+Aufgrund dieser Probleme erfordert die Detektion von paroxysmalem \gls{VHF} die Analyse von Langzeit-\gls{EKG}s, welche bspw. mit mobilen \gls{EKG}-Patches aufgenommen werden können. Im Vergleich zu herkömmlichen 12-Kanal-Langzeit-\gls{EKG}-Rekordern sind mobile \gls{EKG}-Patches weniger invasiv und im Alltag tragbar. Die manuelle Auswertung eines Langzeit-\gls{EKG}s durch medizinisches Fachpersonal ist zeitaufwändig, kostenintensiv und aufgrund der monotonen Arbeit fehleranfällig. Deshalb ist eine automatisierte Auswertung notwendig, für welche bspw. \gls{ML}- oder \gls{DL}-Algorithmen genutzt werden können. 
+
+%Es wurden bereits Methoden zur automatisierten Detektion von \gls{VHF} anhand von 12- und 1-Kanal-\gls{EKG}s entwickelt \cite{mant_accuracy_2007}. 
+
+%Forschungslücke 
+Mobile \gls{EKG}-Patches haben meist eine reduzierte Kanalanzahl und aufgrund der Positionierung der Elektroden unterscheidet sich die Signalmorphologie der Ableitungen von der der 12-Kanal-\gls{EKG}s. Aufgrund dieser Abweichungen zu klassischen \gls{EKG}-Aufnahmen sind bereits vorhandene Klassifikationsansätze auf Aufnahmen mobiler \gls{EKG}-Patches nur begrenzt übertragbar. Die Robustheit von Algorithmen gegen signalmorphologische Veränderungen ist wichtig für eine hohe Klassifikationsgenauigkeit in Aufnahmen mobiler \gls{EKG}-Patches. 
+
+%Konkretisierung der Aufgabenstellung 
+Ziel dieser Arbeit ist die Entwicklung eines \gls{DL}-basierten Ansatzes zur Detektion von \gls{VHF} auf Basis von Standard-12-Kanal-\gls{EKG}s, welcher robust gegen signalmorphologische Veränderungen ist. Der Ansatz wird mit Aufnahmen aus dem TIMELY Projekt\footnote{https://www.timely-project.com/} \cite{schmitz_patient-centered_2022} evaluiert, in dessen Rahmen Aufnahmen von Patienten mit koronarer Herzkrankheit mit mobilen \gls{EKG}-Patches aufgezeichnet wurden. Der Ansatz wird außerdem auf zwei weiteren öffentlich zugänglichen Datenbanken, bestehend aus Aufnahmen mobiler \gls{EKG}-Rekordern, mit annotierten Vorhofflimmerepisoden getestet.
+
+Als Ansatz für ein solches \gls{DL}-Modell wird Domain Adversarial Learning auf Basis von InceptionTime \cite{fawaz_inceptiontime_2020} genutzt. Ein \gls{DANN} wird darauf optimiert, domäneninvariante Merkmale zu erlernen, wobei die Domäne in diesem Fall die \gls{EKG}-Ableitung ist. Somit ist das Modell robuster gegen Veränderungen der Domäne. \cite{ganin_domain-adversarial_2016}
+
+Da als Domänen in dieser Arbeit die verschiedenen Ableitungen eines \gls{EKG}s genutzt werden und die Signalmorphologie von Ableitung zu Ableitung unterschiedlich ist, wird die Vermutung aufgestellt, dass solch ein Modell ebenfalls robuster gegenüber der veränderten Signalmorphologie eines mobilen \gls{EKG}-Patches ist. 
+Das so entwickelte \gls{DANN} wird im Ensemble betrieben. Als Vergleichsmodell wird ein klassisches InceptionTime Ensemble verwendet. Im Rahmen dieser Arbeit werden folgende Hypothesen aufgestellt:
+
+%Hypothesen
+\begin{enumerate}
+\item Haupthypothese:  Ein \gls{DANN} erzielt auf \gls{EKG}-Aufnahmen mit veränderter Morphologie eine bessere Leistung als das InceptionTime Vergleichsmodell.
+\item Teilhypothesen
+	\begin{enumerate}
+	\item Es ist möglich, ein \gls{DANN} zu erstellen und mit 12-Kanal-\gls{EKG}s zu trainieren.
+	\item Das \gls{DANN} ist in der Lage, \gls{VHF} in Standard-12-Kanal-\gls{EKG}s zu detektieren.
+	\item Das \gls{DANN} ist in der Lage, \gls{VHF} in morphologisch veränderten \gls{EKG}s zu detektieren.
+	\item Das \gls{DANN} erzielt eine bessere Leistung, wenn es im Ensemble genutzt wird.
+	\item Das \gls{DANN} erzielt auf dem Testdatensatz der 12-Kanal-\gls{EKG}s eine schlechtere Leistung als das Vergleichsmodell, da es aufgrund des Domain Adversarial Learnings weniger stark overfittet.
+	\end{enumerate}
+\end{enumerate}
+
+%2. Aufbau der Arbeit
+Die Arbeit ist wie folgt aufgebaut: Zunächst werden in \hyperref[chap:Physiologische Grundlagen]{Kapitel 2} physiologische Grundlagen des Erregungsleitsystems des Herzens sowie die Pathophysiologie und Diagnostik von \gls{VHF} erläutert. Anschließend werden in \hyperref[chap:MachineLearning]{Kapitel 3} für das Verständnis der Arbeit notwendige Grundlagen im Bereich \gls{ML} und \gls{DL} geschaffen, sowie das Domain Shift-Problem und Lösungsansätze mit Hilfe von \gls{DG}, insbesondere Domain Adversarial Learning, erklärt. In \hyperref[chap:sdt]{Kapitel 4} wird ein Überblick über den aktuellen Stand der Technik im Bereich Zeitreihenklassifikation, \gls{EKG}-Klassifikation mittels \gls{DL} und \gls{DG} in der \gls{EKG}-Klassifikation gegeben. Genutztes Datenmaterial und wie es vorverarbeitet wurde, sowie Modellarchitektur und Trainingsprozess werden in \hyperref[chap:methodik]{Kapitel 5} vorgestellt. Die Ergebnisse des Trainings, der Evaluation mit 12-Kanal-\gls{EKG}s, sowie die der Evaluation mit Aufnahmen von mobilen \gls{EKG}-Patches werden in \hyperref[chap:Ergebnisse]{Kapitel 6} präsentiert. Die Bewertung und Diskussion der Ergebnisse findet in \hyperref[chap:diskussion]{Kapitel 7} statt. Zusammenfassung und Ausblick sind in \hyperref[chap:fazit]{Kapitel 8} zu finden.
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
